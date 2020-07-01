@@ -1,0 +1,17 @@
+<!--pages/test/test.wxml-->
+  
+
+
+<form bindsubmit="bindFormSubmit">
+  <view class="quiz-wrapper">
+    <view class="quiz-info">提问</view>
+    <view class="quiz-title">
+      <textarea placeholder="请输入提问主题..." name="question"></textarea>
+    </view>
+    <view class="quiz-input">
+      <textarea placeholder="请输入提问内容..." name="question"></textarea>
+    </view>
+
+    <button class="submit" type="primary" form-type="submit">提交</button>
+  </view>
+</form>
