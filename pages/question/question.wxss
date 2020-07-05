@@ -36,7 +36,7 @@
 .quiz-input textarea {
   display: block;
   border-radius: 10rpx;
-  height: 750rpx;
+  height: 500rpx;
   width: 600rpx;
   padding: 30rpx;
   background-color: #fafafa;
@@ -49,4 +49,35 @@
   padding: 8rpx 35rpx;
   font-size: 26rpx;
   border-radius: 10rpx;
+}
+/* pictures  */
+.question-images-area {
+  padding: 40rpx 0;
+}
+
+.pic-btn{
+  padding: 8rpx 35rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+
+.question-images {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.q-image-wrap {
+  width: 31%;
+  margin-right: 10rpx;
+}
+
+.q-image {
+  flex: 1;
+  height: 200rpx;
+  width: 100%;
+}
+
+.q-image-remover {
+  text-align: center;
 }
