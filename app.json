@@ -1,5 +1,10 @@
 {
+<<<<<<< HEAD
   "pages": [
+=======
+  "pages":[
+    
+>>>>>>> origin/frontend-question-page
     "pages/index/index",
     "pages/question/question",
     "pages/logs/logs",

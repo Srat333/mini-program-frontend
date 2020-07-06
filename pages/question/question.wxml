@@ -1,16 +1,37 @@
 <!--pages/test/test.wxml-->
-  
+  <form bindsubmit="bindFormSubmit">
+   <view class="quiz-wrapper">
+      <view class="quiz-info">提问</view>
 
+        <view class="quiz-title">
+           <textarea placeholder="请输入标题..." name="question" maxlength="40" bindinput="handleTitleInput"></textarea>
+          
+          </view>
 
-<form bindsubmit="bindFormSubmit">
-  <view class="quiz-wrapper">
-    <view class="quiz-info">提问</view>
-    <view class="quiz-title">
-      <textarea placeholder="请输入提问主题..." name="question"></textarea>
+        <view class="quiz-input">
+        <textarea placeholder="请输入提问内容..." name="question" maxlength="800"></textarea>
+       </view>
+
+  <view class="question-images-area">
+    <view>
+    <!-- 添加图片按钮  -->
+    <view class="question-images-tool">
+      <button class="pic-btn" type="default" bindtap="chooseImage" wx:if="{{images.length < 3}}">添加图片</button>
     </view>
-    <view class="quiz-input">
-      <textarea placeholder="请输入提问内容..." name="question"></textarea>
+
+    <!-- 图片缩略图  -->
+    <view class="question-images">
+      <block wx:for="{{images}}" wx:key="*this">
+        <view class="q-image-wrap">
+          <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+          <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">删除</view>
+         </view>
+        </block>
+      </view>
     </view>
+
+  </view>
+
 
     <button class="submit" type="primary" form-type="submit">提交</button>
   </view>
