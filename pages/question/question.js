@@ -1,11 +1,10 @@
 // pages/question/question.js
 
-// import { promisify } from '../../utils/promise.util'
-// import { $init, $digest } from '../../utils/common.util'
-// import { createQuestion } from '../../services/question.service'
-// import config from '../../config'
+import { promisify } from '../../utils/promise.util'
+import { $init, $digest } from '../../utils/common.util'
 
-// const wxUploadFile = promisify(wx.uploadFile)
+const wxUploadFile = promisify(wx.uploadFile)
+
 Page({
 
   data: {
@@ -18,6 +17,25 @@ Page({
     catagory: '',
     tag: '',
     images: [],
+  },
+
+  ///////////question-input///////////////////////
+  onLoad(options) {
+    $init(this)
+  },
+
+  handleTitleInput(e) {
+    const value = e.detail.value
+    this.data.title = value
+    this.data.titleCount = value.length
+    $digest(this)
+  },
+
+  handleContentInput(e) {
+    const value = e.detail.value
+    this.data.content = value
+    this.data.contentCount = value.length
+    $digest(this)
   },
   showToast: function(e) {
     wx.showToast({
@@ -57,39 +75,6 @@ Page({
       wx.hideKeyboard()
     }
   },
-// ////input count/////////////
-handleTitleInput(e) {
-  const value = e.detail.value
-  this.data.title = value
-  this.data.titleCount = value.length
-  $digest(this)
-},
-
-handleContentInput(e) {
-  const value = e.detail.value
-  this.data.content = value
-  this.data.contentCount = value.length
-  $digest(this)
-},
-
-  ///////////question-input///////////////////////
-  onLoad(options) {
-    $init(this)
-  },
-
-  handleTitleInput(e) {
-    const value = e.detail.value
-    this.data.title = value
-    this.data.titleCount = value.length
-    $digest(this)
-  },
-
-  handleContentInput(e) {
-    const value = e.detail.value
-    this.data.content = value
-    this.data.contentCount = value.length
-    $digest(this)
-  },
 
   chooseImage(e) {
     wx.chooseImage({
@@ -126,11 +111,13 @@ handleContentInput(e) {
 
     if (title && content) {
       const arr = []
-
+      
+      //将选择的图片组成一个Promise数组，准备进行并行上传
       for (let path of this.data.images) {
         arr.push(wxUploadFile({
           url: 'http://192.168.1.15:8080' + '/qa/',
           filePath: path,
+          name: 'qimg',
         }))
       }
 
@@ -139,24 +126,26 @@ handleContentInput(e) {
         mask: true
       })
 
+      // 开始并行上传图片
       Promise.all(arr).then(res => {
+        // 上传成功，获取这些图片在服务器上的地址，组成一个数组
         return res.map(item => JSON.parse(item.data).url)
       }).catch(err => {
         console.log(">>>> upload images error:", err)
       }).then(urls => {
+        // 调用保存问题的后端接口
         return createQuestion({
           title: title,
           content: content,
-          // images: urls,
-          catagory: '',
-          tag:''
-
+          images: urls
         })
       }).then(res => {
+        // 保存问题成功，返回上一页（通常是一个问题列表页）
         const pages = getCurrentPages();
         const currPage = pages[pages.length - 1];
         const prevPage = pages[pages.length - 2];
 
+        // 将新创建的问题，添加到前一页（问题列表页）第一行
         prevPage.data.questions.unshift(res)
         $digest(prevPage)
 
@@ -169,6 +158,5 @@ handleContentInput(e) {
     }
   }
 
-  
 })
 
