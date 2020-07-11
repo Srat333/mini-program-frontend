@@ -147,13 +147,9 @@ createQuestion(e) {
         console.log("getting image path");
         console.log(path);
         arr.push(wxUploadFile({
-          url: 'https://api.imgbb.com/1/upload',
+          url: 'http://192.168.1.15:8080/qa/upload',
           filePath: path,
-          name: 'qimg',
-          formData: {
-            key: 'b497dc0c5902318efcee4eebe39ccdba',
-            image: path,
-          },
+          name: 'file',
         }))
       }
 
@@ -171,10 +167,7 @@ createQuestion(e) {
       }).then(urls => {
         // 调用保存问题的后端接口
         return this.createQuestion();
-        // console.log("getting url on image server");
-        // urls.forEach(url => {
-        //   console.log(url);
-        // });
+
       }).then(res => {
         wx.showToast({
           title: 'success',
