@@ -15,9 +15,16 @@ Page({
     contentCount: 0,
     title: '',
     content: '',
+    catagory: '',
+    tag: '',
     images: [],
-   
-   
+  },
+  showToast: function(e) {
+    wx.showToast({
+      title: 'tapped button',
+      icon: 'success',
+      duration: 2000,
+    })
   },
   bindKeyInput: function (e) {
     this.setData({
@@ -122,9 +129,8 @@ handleContentInput(e) {
 
       for (let path of this.data.images) {
         arr.push(wxUploadFile({
-          url: config.urls.question + '/image/upload',
+          url: 'http://192.168.1.15:8080' + '/qa/',
           filePath: path,
-          name: 'qimg',
         }))
       }
 
@@ -141,7 +147,10 @@ handleContentInput(e) {
         return createQuestion({
           title: title,
           content: content,
-          images: urls
+          // images: urls,
+          catagory: '',
+          tag:''
+
         })
       }).then(res => {
         const pages = getCurrentPages();
@@ -160,15 +169,6 @@ handleContentInput(e) {
     }
   }
 
-  /**
-   * Page initial data
-   */
- 
-  /**
- 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
   
 })
 

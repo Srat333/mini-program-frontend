@@ -1,14 +1,9 @@
 {
-<<<<<<< HEAD
   "pages": [
-=======
-  "pages":[
-    
->>>>>>> origin/frontend-question-page
     "pages/index/index",
     "pages/question/question",
     "pages/logs/logs",
-    "pages/hello/hello"
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,20 +14,22 @@
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#11cd6e",
-    "borderStyle":"white",
-    "list": [{
-      "selectedIconPath": "images/home.png",
-      "iconPath": "images/home.png",
-      "pagePath": "pages/hello/hello",
-      "text": "广场"
-    }, {
-      "selectedIconPath": "images/profile.png",
-      "iconPath": "images/profile.png",
-      "pagePath": "pages/index/index",
-      "text": "我的"
-    }]
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "广场"
+      },
+      {
+        "selectedIconPath": "images/profile.png",
+        "iconPath": "images/profile.png",
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

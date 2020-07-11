@@ -1,7 +1,7 @@
-<!--pages/test/test.wxml-->
+<!--pages/question/question.wxml-->
   <form bindsubmit="bindFormSubmit">
    <view class="quiz-wrapper">
-      <view class="quiz-info">提问</view>
+      <view class="quiz-info">向ta提问</view>
 
         <view class="quiz-title">
            <textarea placeholder="请输入标题..." name="question" maxlength="40" bindinput="handleTitleInput"></textarea>
@@ -9,7 +9,7 @@
           </view>
 
         <view class="quiz-input">
-        <textarea placeholder="请输入提问内容..." name="question" maxlength="800"></textarea>
+        <textarea placeholder="请输入提问内容..." name="question" maxlength="800" bindinput="handleContentInput"></textarea>
        </view>
 
   <view class="question-images-area">
@@ -33,6 +33,6 @@
   </view>
 
 
-    <button class="submit" type="primary" form-type="submit">提交</button>
+    <button class="submit" type="primary" form-type="submit" bindtap="submitForm">提交</button>
   </view>
 </form>
