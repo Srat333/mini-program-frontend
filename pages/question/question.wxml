@@ -1,5 +1,5 @@
 <!--pages/question/question.wxml-->
-  <form bindsubmit="bindFormSubmit">
+  <form bindsubmit="submitForm">
    <view class="quiz-wrapper">
       <view class="quiz-info">向ta提问</view>
 
