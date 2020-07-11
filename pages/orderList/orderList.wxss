@@ -74,14 +74,14 @@
   padding-right: 50rpx;
   margin-left:10px;
   color: #a8a8a8;
-  font-size: 13px;
+  font-size: 26rpx;
 }
  
 .orderListTitle .orderStatus {
   float: right;
   margin-right: 20rpx;
   color: #a8a8a8;
-  font-size: 13px;
+  font-size: 26rpx;
 }
  
 .orderListDetails {
@@ -121,14 +121,29 @@
   margin-bottom:10px;
 
 }
- 
-.productCount {
+.alreadyProd{
   height: 80rpx;
   line-height: 80rpx;
   border-bottom: 1rpx solid #f3f3f3;
 }
+
+
+.productCount {
+  height: 160rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
  
-.productCount>view {
+.money {
   float: right;
   margin-right: 30rpx;
+}
+.btn{
+  clear: both;
+  float: right;
+  font-size: 26rpx;
+  border-radius: 20rpx;
+  font-weight: normal;
+  border:1rpx solid #e7e7e7;
+  background-color:  #fff;
 }

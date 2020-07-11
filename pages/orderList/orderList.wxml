@@ -23,9 +23,10 @@
             <text class="userName">{{item.name}}</text>
           </view>
         </view>
-        <view class="productCount">
+        <view class="alreadyProd">
           <view>
-            <text>合计：￥{{item.money}}</text>
+            <text class="money">合计：￥{{item.money}}</text>
+
           </view>
         </view>
       </view>
@@ -48,9 +49,12 @@
           </view>
         </view>
         <view class="productCount">
-          <view>
-            <text>合计：￥{{item.money}}</text>
-          </view>
+          <view >
+            <text class="money" >合计：￥{{item.money}}</text>
+            </view>
+           <view >
+            <button class="btn" bindtap="pay" style="width:30vw"  >去付款</button>
+           </view>
         </view>
       </view>
     </scroll-view>
@@ -72,9 +76,12 @@
           </view>
         </view>
         <view class="productCount">
-          <view>
-            <text>合计：￥{{item.money}}</text>
-          </view>
+          <view >
+            <text class="money" >合计：￥{{item.money}}</text>
+            </view>
+           <view >
+            <button class="btn" bindtap="pay" style="width:30vw"  >去回答</button>
+           </view>
         </view>
       </view>
     </scroll-view>
@@ -96,14 +103,16 @@
             <text class="userName">{{item.name}}</text>
           </view>
         </view>
-        <view class="productCount">
-          <view>
-            <text>合计：￥{{item.money}}</text>
-          </view>
+       <view class="productCount">
+          <view >
+            <text class="money" >合计：￥{{item.money}}</text>
+            </view>
+           <view >
+            <button class="btn" style="width:30vw" bindtap="pay" >去评价</button>
+           </view>
         </view>
       </view>
     </scroll-view>
   </swiper-item>
-
 
 </swiper>
