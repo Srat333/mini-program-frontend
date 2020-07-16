@@ -23,58 +23,123 @@
 
   <view class="separate"></view>
 
-  <view class="order" catchtap="toOrder">
-    <text class="myorder-text">我的订单</text>
-    <text class="myorderlook-text">查看全部订单</text>
-  </view>
-  <view class="line"></view>
-  <view class="navs">
-    <block wx:for-items="{{orderItems}}" wx:key="name">
-      <view class="nav-item" catchtap="toOrder" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
-        <image src="{{item.imageurl}}" class="nav-image" />
-        <text class="cz">{{item.name}}</text>
+<!-- 切换栏 -->
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height:{{deviceH-31}}px" bindchange="tabChange">
+  <!-- 已完成 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view  class="orderDetails" wx:for="{{alreadyOrder}}" wx:key=" ">
+        <view class="orderListTitle">
+           <text class="productTitle">{{item.time}}</text>
+          <text class="orderStatus">{{item.state}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.url}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <text class="userName">{{item.name}}</text>
+          </view>
+        </view>
+        <view class="alreadyProd">
+          <view>
+            <text class="money">合计：￥{{item.money}}</text>
+
+          </view>
+        </view>
       </view>
-    </block>
-  </view>
-  <view class="line"></view>
-  
-  <view class="person-list">
+    </scroll-view>
+  </swiper-item>
+  <!-- 待付款 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key=" ">
+         <view class="orderListTitle">
+           <text class="productTitle">{{item.time}}</text>
+          <text class="orderStatus">{{item.state}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.url}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <text class="userName">{{item.name}}</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view >
+            <text class="money" >合计：￥{{item.money}}</text>
+            </view>
+           <view >
+            <button class="btn" bindtap="pay" style="width:30vw"  >去付款</button>
+           </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 待回答-->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="orderDetails" wx:for="{{waitAnsOrder}}" wx:key=" ">
+         <view class="orderListTitle">
+           <text class="productTitle">{{item.time}}</text>
+          <text class="orderStatus">{{item.state}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.url}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <text class="userName">{{item.name}}</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view >
+            <text class="money" >合计：￥{{item.money}}</text>
+            </view>
+           <view >
+            <button class="btn" bindtap="pay" style="width:30vw"  >去回答</button>
+           </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+ 
+   <!-- 待评价 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="orderDetails" wx:for="{{waitComOrder}}" wx:key=" ">
+         <view class="orderListTitle">
+           <text class="productTitle">{{item.time}}</text>
+          <text class="orderStatus">{{item.state}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.url}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <text class="userName">{{item.name}}</text>
+          </view>
+        </view>
+       <view class="productCount">
+          <view >
+            <text class="money" >合计：￥{{item.money}}</text>
+            </view>
+           <view >
+            <button class="btn" style="width:30vw" bindtap="pay" >去评价</button>
+           </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
 
-    <view class="list-item">
-      <image class="item-image" src="/static/images/youhuiquan.png"></image>
-      <text class="item-text">优惠券</text>
-    </view>
+</swiper>
 
-    <view class="person-line"></view>
-    <view class="list-item">
-      <image class="item-image" src="/static/images/wodeshoucang.png"></image>
-      <text class="item-text">我的收藏</text>
-    </view>
-
-    <view class="person-line"></view>
-    <view class="list-item">
-      <image class="item-image" src="/static/images/shouhuodizhi-copy.png"></image>
-      <text class="item-text">收货地址</text>
-    </view>
-
-    <view class="person-line"></view>
-    <view class="list-item">
-      <image class="item-image" src="/static/images/shouhoujilumdpi.png"></image>
-      <text class="item-text">售后记录</text>
-    </view>
-
-    <view class="person-line"></view>
-    <view class="list-item">
-      <image class="item-image" src="/static/images/wodepingjia.png"></image>
-      <text class="item-text">我的评价</text>
-    </view>
-
-    <view class="person-line"></view>
-    <view class="list-item">
-      <image class="item-image" src="/static/images/kefu.png"></image>
-      <text class="item-text">在线客服</text>
-    </view>
-  </view>
-  <view class="separate"></view>
 
 </view>
