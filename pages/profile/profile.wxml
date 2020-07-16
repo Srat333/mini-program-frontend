@@ -1,45 +1,80 @@
-<!--pages/profile/profile.wxml-->
-<view class="view_contain">
-  <!-- 第一部分 -->
-  <view class="view_1">
-    <view class="view_image_text">
-      <image class="image_radius" src="../images/timg.png" />
-      <text>张三</text>
+<view wx:if="{{isHide}}">
+  <view wx:if="{{canIUse}}">
+    <view class='header'>
+      <image src='/static/images/weixin_1.png'></image>
     </view>
+    <view class='content'>
+      <view>申请获取以下权限</view>
+      <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      授权登录
+    </button>
   </view>
-  <!-- 第二部分 -->
-  <view class="view_2">
-    <view class="view_tupianwenzi">
-      <image class="image_tupian" src="../images/test1.png"></image>
-      <text class="text_saoyisao">待付款</text>
-    </view>
-    <view class="view_tupianwenzi">
-      <image class="image_tupian" src="../images/test2.png"></image>
-      <text class="text_saoyisao">待发货</text>
-    </view>
-    <view class="view_tupianwenzi">
-      <image class="image_tupian" src="../images/test3.png"></image>
-      <text class="text_saoyisao">待收货</text>
-    </view>
-    <view class="view_tupianwenzi">
-      <image class="image_tupian" src="../images/test4.png"></image>
-      <text class="text_saoyisao">待评价</text>
+  <view wx:else>请升级微信版本</view>
+</view>
+
+<view wx:else>
+
+  <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="separate"></view>
+
+  <view class="order" catchtap="toOrder">
+    <text class="myorder-text">我的订单</text>
+    <text class="myorderlook-text">查看全部订单</text>
+  </view>
+  <view class="line"></view>
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+      <view class="nav-item" catchtap="toOrder" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+        <image src="{{item.imageurl}}" class="nav-image" />
+        <text class="cz">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="line"></view>
+  
+  <view class="person-list">
+
+    <view class="list-item">
+      <image class="item-image" src="/static/images/youhuiquan.png"></image>
+      <text class="item-text">优惠券</text>
     </view>
 
-  </view>
-  <!-- 第三部分 -->
-  <view class="view_3">
+    <view class="person-line"></view>
     <view class="list-item">
-      <image class="item-image" src="../images/test5.png"></image>
+      <image class="item-image" src="/static/images/wodeshoucang.png"></image>
       <text class="item-text">我的收藏</text>
-      <image class="image-jiantou" src="../images/jiantou.png"></image>
     </view>
-    <view class="line"></view>
+
+    <view class="person-line"></view>
     <view class="list-item">
-      <image class="item-image" src="../images/test6.png"></image>
-      <text class="item-text">我的评价</text>
-      <image class="image-jiantou" src="../images/jiantou.png"></image>
+      <image class="item-image" src="/static/images/shouhuodizhi-copy.png"></image>
+      <text class="item-text">收货地址</text>
     </view>
-    <view class="line"></view>
+
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/static/images/shouhoujilumdpi.png"></image>
+      <text class="item-text">售后记录</text>
+    </view>
+
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/static/images/wodepingjia.png"></image>
+      <text class="item-text">我的评价</text>
+    </view>
+
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/static/images/kefu.png"></image>
+      <text class="item-text">在线客服</text>
+    </view>
   </view>
+  <view class="separate"></view>
+
 </view>
