@@ -1,0 +1,32 @@
+<!--pages/answer/answer.wxml-->
+  <form bindsubmit="bindFormSubmit">
+   <view class="quiz-wrapper">
+      <view class="quiz-info">回答</view>
+         <view class="quiz-title">
+           <text placeholder="请输入标题..." name="question" maxlength="40" bindinput="handleTitleInput"> 2020选校选专业应该注意些什么。。。</text>
+          </view>
+        <view class="quiz-input">
+        <textarea placeholder="请输入回答内容..." name="question" maxlength="800"></textarea>
+       </view>
+  <view class="question-images-area">
+    <view>
+    <!-- 添加图片按钮  -->
+    <view class="question-images-tool">
+      <button class="pic-btn" type="default" bindtap="chooseImage" wx:if="{{images.length < 3}}">添加图片</button>
+    </view>
+
+    <!-- 图片缩略图  -->
+    <view class="question-images">
+      <block wx:for="{{images}}" wx:key="*this">
+        <view class="q-image-wrap">
+          <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+          <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">删除</view>
+         </view>
+        </block>
+      </view>
+    </view>
+
+  </view>
+    <button class="submit" type="primary" form-type="submit">发布</button>
+  </view>
+</form>

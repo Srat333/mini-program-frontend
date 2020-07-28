@@ -1,0 +1,153 @@
+/* pages/questionDetail/questionDetail.wxss */
+
+.top-wrapper{
+	flex: 1;
+	display: flex;
+	justify-content:  space-evenly;
+}
+.price{
+	color: #bbb;
+	font-size: 24rpx;
+	display: flex;
+}
+.top-info{
+	color: black;
+	font-size: 35rpx;
+	justify-content:  space-evenly;
+	text-align: center;
+}
+.cnt{
+	color: #bbb;
+	font-size: 24rpx;
+	text-align: center;
+}
+
+.top-info span{
+	text-align: center;
+}
+
+
+.ques-wrapper{
+	padding: 30rpx;
+	background-color: #fff;
+	margin-bottom: 30rpx;
+}
+.ques-info{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+}
+.ques-info image{
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+}
+/* name & ques or ans */
+.ques-sec{
+	margin-left: 20rpx;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.ans-sec{
+	margin-left: 500rpx;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.ques-user{
+	color: #bbb;
+  font-size: 24rpx;
+}
+.ans-user{
+	color: #bbb;
+  font-size: 24rpx;
+}
+.ques-Details {
+  margin: 20rpx;
+  margin-top:60rpx ;
+  margin-bottom: 60rpx;
+  background:#f5f5f5;
+  border-radius: 30rpx;
+}
+.ans-Details {
+  margin: 20rpx;
+  margin-top:60rpx ;
+  margin-bottom: 60rpx;
+  background:#c5effd;
+  border-radius: 30rpx;
+}
+.ques-content{
+	padding: 10rpx 0 30rpx 90rpx;
+	font-size: 28rpx;
+}
+.ans-wrapper{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	align-items: center;
+}
+.ans-wrapper image{
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+}
+.ans-time{
+	color: #ccc;
+}
+.ans-info{
+	color: #aaa;
+	margin-top: 30rpx;
+	padding-top: 20rpx;
+	border-top: 0.5rpx solid rgb(231, 230, 230);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+  font-size: 22rpx;
+}
+.master-info{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	padding: 30rpx;
+	background-color: #fff;
+	margin-bottom: 30rpx;
+}
+.master-info image{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+}
+.master-brief{
+	height: 120rpx;
+	padding-left: 40rpx;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.question-images {
+  display: flex;
+  align-items: center;
+	margin-top: 20rpx;
+
+}
+.question-images image{
+	max-width: 100px;
+	max-height: 100px;
+	border-radius: 5%;
+}
+
+.btn{
+  font-size: 24rpx;
+	background-color: white;
+	border: 1px solid rgb(231, 230, 230);
+	word-spacing: 5rpx;
+
+}

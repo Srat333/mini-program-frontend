@@ -1,5 +1,10 @@
 {
   "pages":[
+
+    "pages/questionDetail/questionDetail",
+    "pages/evaluation/evaluation",
+    
+    "pages/answer/answer",
     "pages/orderList/orderList",
     "pages/index/index",
     "pages/question/question",
