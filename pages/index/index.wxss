@@ -44,12 +44,12 @@ navigator{
 .list .list_item{
   margin-top:10px;
   padding:10px;
-  height:60px;
+  height:90px;
   border-bottom:1px solid #E8E8E8;
 }
 .list .list_item .img{
   float:left;
-  width:18%;
+  width:23%;
   height:100%;
 }
 .list .list_item .img image{

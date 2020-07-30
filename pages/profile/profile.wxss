@@ -53,13 +53,16 @@
 }
 
 .userinfo-avatar {
-  width: 108rpx;
-  height: 108rpx;
-  margin: 40rpx;
+  width: 158rpx;
+  height: 158rpx;
+  margin: 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   color: #9d9d9d;
 }
 

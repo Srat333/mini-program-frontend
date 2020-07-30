@@ -16,6 +16,7 @@ Page({
     content: '',
     catagory: '',
     tag: '',
+    question_uid: '',
     images: [],
   },
 
@@ -113,9 +114,11 @@ createQuestion(e) {
     method: "POST",
     data: {
       title : JSON.stringify(this.data.title),
+      question_uid: JSON.stringify(this.data.question_uid),
       content: JSON.stringify(this.data.content),
       category: JSON.stringify(this.data.catagory),
       tag: JSON.stringify(this.data.tag),
+      question_uid: JSON.stringify(this.data.uid)
     },
     header: {
       "Content-Type": "application/x-www-form-urlencoded"

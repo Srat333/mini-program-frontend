@@ -8,21 +8,23 @@
 <!--答主-->
 <view hidden="{{currentTab!==0}}">
 	<view class='list'>
-		<block wx:for='{{dataList}}' wx:key='list' wx:for-item="item">
+		<block wx:for='{{userList}}' wx:key='list' wx:for-item="item">
 			<view class="list_item">
-				<navigator url='details?id={{item.user_id}}'>
+				<navigator url='details?id={{item.session_key}}'>
 					<view class='img'>
-						<image src="{{imghref}}{{item.user_avatar}}" mode="scaleToFill" />
+						<image src="{{item.avatarUrl}}" />
 					</view>
 					<view class='info'>
 						<view class='info-header'>
-							<view class='name'>{{item.user_name}} ★ {{item.user_rating}}</view>
+							<view class='name'>{{item.nickName}} ★ {{item.rating}}</view>
 						</view>
-
-						<button class="button" size="mini" bindtap="onTapAsk">请教
-						</button>
-						<view class='desc'>{{item.user_desc}}</view>
-						<view class='price'>￥{{item.user_price}}</view>
+						<view>
+						<navigator url='question?question_uid={{item.uid}}'>
+						<button class="button" size="mini" bindtap="onTapAsk">请教</button>
+						</navigator>
+						<view class='price'>￥4.99</view>
+						</view>
+						
 					</view>
 				</navigator>
 				<view class='clear'></view>
@@ -39,7 +41,7 @@
 				<navigator url='details?id={{item.pid}}'>
 
 					<view class='info'>
-              <view>{{item.q_content}}</view>
+              <view>{{item.qtitle}}</view>
 							<view class='price'>￥1</view>
               <button class='button' size="mini" bindtap="showToast">旁听</button>
 					</view>

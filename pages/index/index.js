@@ -9,24 +9,8 @@ Page({
     ret: "",
     navbar: ['答主', '问题'],
     currentTab: 0,
-    dataList:[
-      {
-        user_id:1,
-        user_name:'答主1',
-        user_desc:'专注于大学生活',
-        user_avatar:'/images/avatar1.png',
-        user_rating:'4.6',
-        user_price:'4.99'
-      },{
-        user_id:2,
-        user_name:'答主2',
-        user_desc:'职场生活',
-        user_avatar:'/images/avatar2.png',
-        user_rating:'4.7',
-        user_price:'4.99'
-      }
-    ],
-
+    localUrl: '/images/avatar1.png',
+    userList:[],
     questionList: []
   },
 
@@ -58,6 +42,42 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
+      url: 'http://192.168.1.15:8080/user/all',
+      method: 'GET',
+      data: {},
+      success: function(res){
+        console.log(res);
+        var ret = res.data;
+
+        if(ret==null){
+          var toastText = 'get failed';
+          wx.showToast({
+            title: toastText,
+            icon:'',
+            duration: 2000,
+          });
+        } else {
+        that.setData({
+          userList: ret
+        })
+        }
+      }
+    });
+  },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function () {
+    var that = this;
+    wx.request({
       url: 'http://192.168.1.15:8080/qa/all',
       method: 'GET',
       data: {},
@@ -79,20 +99,6 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
   },
 
   /**
