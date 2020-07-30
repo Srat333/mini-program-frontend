@@ -1,4 +1,6 @@
 // pages/hello/hello.js
+import api from '../../api/request'
+
 var app = getApp()
 Page({
 
@@ -9,7 +11,6 @@ Page({
     ret: "",
     navbar: ['答主', '问题'],
     currentTab: 0,
-    localUrl: '/images/avatar1.png',
     userList:[],
     questionList: []
   },
@@ -30,6 +31,9 @@ Page({
   },
 
   onTapAsk(){
+    var skey = wx.getStorageSync("skey")
+    console.log("here comes skey")
+    console.log(skey)
     wx.navigateTo({
       url: '../question/question',
     })
@@ -42,7 +46,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://192.168.1.15:8080/user/all',
+      url: api.host+api.uri.allUser,
       method: 'GET',
       data: {},
       success: function(res){
@@ -78,7 +82,7 @@ Page({
   onShow: function () {
     var that = this;
     wx.request({
-      url: 'http://192.168.1.15:8080/qa/all',
+      url: api.host+api.uri.allQ,
       method: 'GET',
       data: {},
       success: function(res){

@@ -24,7 +24,7 @@
   <!-- 已完成 -->
   <swiper-item>
     <scroll-view class="hot-box" scroll-y="true">
-      <view  class="orderDetails" wx:for="{{alreadyOrder}}" wx:key=" ">
+      <view  class="orderDetails" wx:for="{{alreadyOrder}}" wx:key="alreadyOrder">
         <view class="orderListTitle">
            <text class="productTitle">{{item.time}}</text>
           <text class="orderStatus">{{item.state}}</text>
@@ -37,10 +37,12 @@
             <text class="userName">{{item.name}}</text>
           </view>
         </view>
-        <view class="alreadyProd">
+        <view class="productCount">
           <view>
             <text class="money">合计：￥{{item.money}}</text>
-
+            <view >
+            <button class="btn" bindtap="onTapDetail" style="width:30vw"  >详情</button>
+           </view>
           </view>
         </view>
       </view>
@@ -49,7 +51,7 @@
   <!-- 待付款 -->
   <swiper-item>
     <scroll-view class="hot-box" scroll-y="true">
-      <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key=" ">
+      <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key="waitPayOrder">
          <view class="orderListTitle">
            <text class="productTitle">{{item.time}}</text>
           <text class="orderStatus">{{item.state}}</text>
@@ -65,9 +67,7 @@
         <view class="productCount">
           <view >
             <text class="money" >合计：￥{{item.money}}</text>
-            </view>
-           <view >
-            <button class="btn" bindtap="pay" style="width:30vw"  >去付款</button>
+            <button class="btn" bindtap="onTapPay" style="width:30vw"  >去付款</button>
            </view>
         </view>
       </view>
@@ -76,7 +76,7 @@
   <!-- 待回答-->
   <swiper-item>
     <scroll-view class="hot-box" scroll-y="true">
-      <view class="orderDetails" wx:for="{{waitAnsOrder}}" wx:key=" ">
+      <view class="orderDetails" wx:for="{{waitAnsOrder}}" wx:key="waitAnsOrder">
          <view class="orderListTitle">
            <text class="productTitle">{{item.time}}</text>
           <text class="orderStatus">{{item.state}}</text>
@@ -94,7 +94,7 @@
             <text class="money" >合计：￥{{item.money}}</text>
             </view>
            <view >
-            <button class="btn" bindtap="pay" style="width:30vw"  >去回答</button>
+            <button class="btn" bindtap="onTapAnswer" style="width:30vw"  >去回答</button>
            </view>
         </view>
       </view>
@@ -104,7 +104,7 @@
    <!-- 待评价 -->
   <swiper-item>
     <scroll-view class="hot-box" scroll-y="true">
-      <view class="orderDetails" wx:for="{{waitComOrder}}" wx:key=" ">
+      <view class="orderDetails" wx:for="{{waitComOrder}}" wx:key="waitComOrder">
          <view class="orderListTitle">
            <text class="productTitle">{{item.time}}</text>
           <text class="orderStatus">{{item.state}}</text>
@@ -122,14 +122,14 @@
             <text class="money" >合计：￥{{item.money}}</text>
             </view>
            <view >
-            <button class="btn" style="width:30vw" bindtap="pay" >去评价</button>
+            <button class="btn" style="width:30vw" bindtap="onTapEval" >去评价</button>
            </view>
         </view>
       </view>
     </scroll-view>
   </swiper-item>
 
-</swiper>
+</swiper>  
 
 
 </view>

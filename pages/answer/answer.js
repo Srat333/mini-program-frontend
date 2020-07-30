@@ -13,24 +13,13 @@ Page({
     inputValue: '',
     titleCount: 0,
     contentCount: 0,
-    title: '',
+    title: '2020选校选专业应该注意些什么',
     content: '',
-    catagory: '',
-    tag: '',
-    question_uid: '',
     images: [],
   },
 
-  ///////////question-input///////////////////////
   onLoad(options) {
     $init(this)
-  },
-
-  handleTitleInput(e) {
-    const value = e.detail.value
-    this.data.title = value
-    this.data.titleCount = value.length
-    $digest(this)
   },
 
   handleContentInput(e) {
@@ -39,13 +28,7 @@ Page({
     this.data.contentCount = value.length
     $digest(this)
   },
-  showToast: function(e) {
-    wx.showToast({
-      title: 'tapped button',
-      icon: 'success',
-      duration: 2000,
-    })
-  },
+
   bindKeyInput: function (e) {
     this.setData({
       inputValue: e.detail.value
@@ -108,46 +91,39 @@ Page({
     })
   },
 
-
-createQuestion(e) {
-  var uid = wx.getStorageSync("skey")
-  wx.request({
-    url : api.host+api.uri.addQ,
+createAnswer(e) {
+    var uid = wx.getStorageSync("skey")
+    console.log("ready to submit answer")
+    console.log(this.data.content)
+    wx.request({
+    url : api.host+api.uri.addA,
     method: "POST",
     data: {
-      title : JSON.stringify(this.data.title),
-      // TODO, here uid is string, api requested long.
+      // TODO, here qid is string, api requested long.
       // uid: JSON.stringify(uid),
-      uid: 123456789,
+      qid: 123456789,
       content: JSON.stringify(this.data.content),
-      category: JSON.stringify(this.data.catagory),
-      tag: JSON.stringify(this.data.tag),
     },
     header: {
       "Content-Type": "application/x-www-form-urlencoded"
     },
     success: function (res) {
       console.log(res.data);
-      wx.navigateBack({
-        delta: 1  //小程序关闭当前页面返回上一页面
-      })
       wx.showToast({
-        title: '请教成功！',
+        title: '回答成功！',
         icon: 'success',
         duration: 2000
       })
     },
   })
-},
+  },
 
-  // 提交表单
   submitForm(e) {
-    const title = this.data.title
+    console.log("submitting form")
     const content = this.data.content
-
-    if (title && content) {
+    if (content.length>0) {
       const arr = []
-
+      console.log("preaparing to upload")
       //将选择的图片组成一个Promise数组，准备进行并行上传
       for (let path of this.data.images) {
         console.log("getting image path");
@@ -163,7 +139,6 @@ createQuestion(e) {
         title: '正在创建...',
         mask: true
       })
-
       // 开始并行上传图片
       Promise.all(arr).then(res => {
         // 上传成功，获取这些图片在服务器上的地址，组成一个数组
@@ -171,15 +146,16 @@ createQuestion(e) {
       }).catch(err => {
         console.log(">>>> upload images error:", err)
       }).then(urls => {
-        // 调用保存问题的后端接口
-        return this.createQuestion();
+        // 调用保存回答的后端接口
+        console.log("adding answer to server")
+        return this.createAnswer()
 
       }).then(res => {
         wx.showToast({
           title: 'success',
-        })
+        })   
       }).catch(err => {
-        console.log(">>>> create answer error:", err)
+        console.log(">>>> create question error:", err)
       }).then(() => {
         wx.hideLoading()
       })

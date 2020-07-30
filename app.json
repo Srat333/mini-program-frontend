@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/question/question",
     "pages/logs/logs",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/evaluation/evaluation",
+    "pages/answer/answer",
+    "pages/questionDetail/questionDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

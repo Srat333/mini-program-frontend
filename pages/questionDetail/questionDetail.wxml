@@ -1,0 +1,53 @@
+<!--pages/questionDetail/questionDetail.wxml-->
+<view>
+    <view class="top-wrapper">
+      <view class="top-info" ><view class="price" > 价格（元）</view> <span>{{price}}</span></view>
+        <view class="top-info" ><view class="cnt" > 旁听 </view> <span>{{people}}</span></view>
+      </view>
+  <view class="ques-wrapper">
+  <view class="ques-Details">
+  <view class="ques-info">
+      <image src="{{quesuserimg}}"></image>
+      <view class="ques-sec">
+        <view class="ques-user" >{{quesname}}<view class="ques-user" > 提问</view></view>
+      </view>
+      <view class="line"></view>
+    </view>
+    <view class="ques-content">
+      <text>{{quescontent}}</text>
+      <view class="question-images">
+            <image src="{{quesimg}}"> </image>
+      </view>
+           <view class="ans-info" >
+      <view>
+        <text >{{questime}}</text>
+      </view>    
+    </view>
+    </view>
+  </view>
+
+    <view class="ans-Details" wx:if="{{paytatus}}">
+      <view class="ques-info" >
+      
+      <view class="ans-sec">
+        <view class="ans-user" ><view class="ans-user" > {{ansname}}</view>回答</view>
+        <image src="{{ansuserimg}}"></image>
+      </view>
+      <view class="line"></view>
+      </view>
+      <view class="ques-content" >
+        <text>{{anscontent}}</text>
+                   <view class="question-images">
+            <image src="{{ansimg}}"> </image>
+      </view>
+              <view class="ans-info" >
+      <view>
+        <text >{{anstime}}</text>
+      </view>    
+    </view>
+      </view>
+      </view>
+      <button class="btn" bindtap="pay"   style="width: 90%; height: 30px; border-radius: 40rpx;">¥ {{listenPrice}} 去旁听</button>
+    
+  </view> 
+</view>

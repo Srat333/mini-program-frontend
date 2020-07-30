@@ -34,7 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
   },
   setGlobalUserInfo: function(user) {
     wx.setStorageSync('userInfo', user);

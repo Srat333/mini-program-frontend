@@ -1,3 +1,4 @@
+import api from '../../api/request'
 //获取应用实例
 const app = getApp()
 
@@ -48,7 +49,7 @@ Page({
             success: function(info_res) {
               // 2. 小程序通过wx.request()发送code到开发者服务器
               wx.request({
-                url: 'http://localhost:8080/wx/login',
+                url: api.host+api.uri.login,
                 method: 'POST',
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'
@@ -64,6 +65,7 @@ Page({
                   if (res.data.status == 200) {
                     // 7.小程序存储skey（自定义登录状态）到本地
                     wx.setStorageSync('userInfo', userInfo);
+                    // 每次发起请求时都可以携带skey
                     wx.setStorageSync('skey', res.data.data);
                   } else{
                     console.log('服务器异常');
@@ -165,4 +167,31 @@ Page({
       waitComOrder: [{ name: "关于选学校选专业......", state: "待评价", time: "2020-09-30 14:00-16:00",  url: "../../images/testOrderPage.jpg", money: "10" }, { name: "关于选学校选专业......", state: "待评价", time: "2020-09-30 14:00-16:00", url: "../../images/testOrderPage.jpg", money: "10" }],
     })
   },
+  
+//TODO
+  onTapDetail(){
+    wx.showToast({
+      title: 'tapped detail',
+      duration: 1500,
+    })
+  },
+  
+  onTapPay(){
+    wx.showToast({
+      title: 'Paid',
+      duration: 1500,
+    })
+  },
+
+  onTapAnswer(){
+    wx.navigateTo({
+      url: '../answer/answer',
+    })
+  },
+
+  onTapEval(){
+    wx.navigateTo({
+      url: '../evaluation/evaluation',
+    })
+  }
 })
