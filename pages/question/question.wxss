@@ -45,20 +45,25 @@
 }
 
 
-.submit {
-  padding: 8rpx 35rpx;
-  font-size: 26rpx;
-  border-radius: 10rpx;
-}
+
 /* pictures  */
 .question-images-area {
   padding: 40rpx 0;
 }
-
+/* button */
 .pic-btn{
   padding: 8rpx 35rpx;
   font-size: 26rpx;
   border-radius: 10rpx;
+  color: rgb(143, 143, 143);
+  
+}
+.submit {
+  padding: 8rpx 35rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+  background-color:  rgb(172, 172, 172);
+  color: white;
 }
 
 .question-images {
