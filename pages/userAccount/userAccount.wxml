@@ -1,0 +1,60 @@
+<view name="master-column">
+    <view class="master-info" id="{{key}}">
+      <image src="{{userimg}}"></image>
+      <view class="master-brief">
+        <view class="master-user">{{name}}</view>
+        <view class="master-intro">{{content}}</view>
+        <view class="master-fans">{{fans}} 人已关注</view>
+      </view>
+
+        <text decode="{{true}}">
+          \n &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        </text>
+    <view class="master-follow" bindtap="submitQuestion" data-img="{{img}}" data-name="{{name}}">提问</view>
+  </view>
+</view>  
+  <!--评论列表-->
+  <view class="c_wrapper" >
+    <view class="c_btn">
+      <text>评价</text><text class="to_comment"  bindtap='toComments'>查看{{c_num}}条评价></text>
+    </view>
+<view class="c_item_wrapper">
+    <view class="comments">
+      <view class="item touch-active" >
+        <view class="i-left"><image class="c-u-img" src="{{c_user_img}}"></image>
+        </view>
+        <view class="i-right">
+          <view class="top">
+            <text class="u-name">{{c_user_name}}</text>
+            <text class="time">{{c_time}}</text>
+          </view>
+            <!--评论内容-->
+              <view class="content">{{c_content}}</view>
+        </view>
+      </view>
+    </view>
+      </view>
+    </view>
+
+ <!--公开咨询列表-->
+  <view class="c_wrapper" >
+    <view class="c_btn">
+      <text>公开咨询</text><text bindtap='toQuestions' class="to_comment">查看{{q_num}}条咨询></text>
+    </view>
+<view class="c_item_wrapper">
+    <view class="comments">
+      <view class="item touch-active" >
+        <view class="i-left"><image class="c-u-img" src="{{q_user_img}}"></image>
+        </view>
+        <view class="i-right">
+          <view class="top">
+            <text class="u-name">{{q_user_name}}</text>
+            <text class="time">{{q_time}}</text>
+          </view>
+            <!--评论内容-->
+              <view class="content">{{q_content}}</view>
+        </view>
+      </view>
+    </view>
+      </view>
+    </view>

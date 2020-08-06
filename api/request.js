@@ -11,8 +11,10 @@ const uri = {
   // 提问
   addQ: 'qa/add',
   upload: 'qa/upload',
+  addOrder: 'order/add',
   // 回答
   addA: 'qa/reply'
+
 }
 
 const api = {

@@ -10,6 +10,14 @@ Page({
     hasUserInfo: false,
     currtab: 0,
     swipertab: [{ name: '已完成', index: 0 }, { name: '待付款', index: 1 }, { name: '待回答', index: 2 }, { name: '待评价', index: 3 }],
+    alreadyOrder: [{  name: "关于选学校选专业.....", 
+                      state: "交易成功", 
+                      time: "2020-09-30 14:00-16:00", 
+                      url: "../../images/testOrderPage.jpg", price: "10" }],
+    waitPayOrder: [],
+    waitAnsOrder: [],
+    waitComOrder: [],
+    
   },
 
   onLoad: function () {
@@ -145,27 +153,19 @@ Page({
     }
   },
   alreadyShow: function(){
-    this.setData({
-      alreadyOrder: [{ name: "关于选学校选专业.....", state: "交易成功", time: "2020-09-30 14:00-16:00", url: "../../images/testOrderPage.jpg", money: "10" }, { name: "关于选学校选专业.....", state: "交易成功", time: "2020-09-30 14:00-16:00", url: "../../images/testOrderPage.jpg", money: "10" }]
-    })
+
   },
  
   waitPayShow:function(){
-    this.setData({
-      waitPayOrder: [{ name: "关于选学校选专业......", state: "待付款", time: "2020-09-30 14:00-16:00",  url: "../../images/testOrderPage.jpg", money: "10" }, { name: "关于选学校选专业......", state: "待付款", time: "2020-09-30 14:00-16:00", url: "../../images/testOrderPage.jpg", money: "10" }],
-    })
+
   },
  
   waitAnsShow: function () {
-    this.setData({
-      waitAnsOrder: [{ name: "关于选学校选专业......", state: "待回答", time: "2020-09-30 14:00-16:00",  url: "../../images/testOrderPage.jpg", money: "10" }, { name: "关于选学校选专业......", state: "待回答", time: "2020-09-30 14:00-16:00", url: "../../images/testOrderPage.jpg", money: "10" }],
-    })
+
   },
 
   waitComShow: function () {
-    this.setData({
-      waitComOrder: [{ name: "关于选学校选专业......", state: "待评价", time: "2020-09-30 14:00-16:00",  url: "../../images/testOrderPage.jpg", money: "10" }, { name: "关于选学校选专业......", state: "待评价", time: "2020-09-30 14:00-16:00", url: "../../images/testOrderPage.jpg", money: "10" }],
-    })
+
   },
   
 //TODO

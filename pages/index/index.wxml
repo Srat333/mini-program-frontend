@@ -11,7 +11,7 @@
 		<block wx:for='{{userList}}' wx:key='list' wx:for-item="item">
 			<view class="list_item">
 				<navigator url='details?id={{item.session_key}}'>
-					<view class='img'>
+					<view class='img' bindtap="onTapProfile">
 						<image src="{{item.avatarUrl}}" />
 					</view>
 					<view class='info'>
@@ -40,10 +40,10 @@
 			<view class="list_item">
 				<navigator url='details?id={{item.pid}}'>
 
-					<view class='info'>
+					<view class='info' bindtap="onTapDetail">
               <view>{{item.qtitle}}</view>
 							<view class='price'>￥1</view>
-              <button class='button' size="mini" bindtap="showToast">旁听</button>
+              <button class='button' size="mini" bindtap="onTapSteal">旁听</button>
 					</view>
 				</navigator>
 				<view class='clear'></view>

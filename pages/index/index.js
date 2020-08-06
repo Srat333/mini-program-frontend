@@ -22,11 +22,15 @@ Page({
     })
   },
 
-  showToast: function(e) {
-    wx.showToast({
-      title: 'tapped button',
-      icon: 'success',
-      duration: 2000,
+  onTapProfile(){
+    wx.redirectTo({
+      url: '../userAccount/userAccount',
+    })
+  },
+
+  onTapDetail(){
+    wx.redirectTo({
+      url: '../questionDetail/questionDetail',
     })
   },
 
@@ -34,9 +38,48 @@ Page({
     var skey = wx.getStorageSync("skey")
     console.log("here comes skey")
     console.log(skey)
-    wx.navigateTo({
-      url: '../question/question',
+    //TODO: add order
+    var that = this;
+    wx.request({
+      url: api.host+api.uri.addOrder,
+      method: 'POST',
+      data: {
+        qid: 12345678,
+      },
+      success: function(res){
+        console.log(res);
+        var ret = res.data;
+
+        if(ret==null){
+          var toastText = 'get failed';
+          wx.showToast({
+            title: toastText,
+            icon:'',
+            duration: 2000,
+          });
+        } else {
+          wx.showToast({
+            title: '成功，请付款',
+            duration: 3000,
+          })
+        }
+      }
     })
+
+    wx.switchTab({
+      url: '../profile/profile'
+  })
+  },
+
+  onTapSteal(){
+    wx.showToast({
+      title: '成功，请付款',
+      duration: 3000,
+    })
+    //TODO: add order
+    wx.switchTab({
+      url: '../profile/profile'
+  })
   },
 
 
