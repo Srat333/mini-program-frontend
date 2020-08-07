@@ -16,35 +16,38 @@ Page({
     questime: "2020.02.02 17.59.02", //提问时间
     quesimg:"../../images/testOrderPage.jpg",
     listenPrice:"1",
-    hiddenToast: false,
+    payStatus: false,
     price:"1",
     people:"1",
   },
     /**
    * 点击相关按钮引发的吐司效果
    */
-  hiddenToast: function () {
-    var that = this;
-    that.setData({
-      hiddenToast: true
-    })
-  },
-
+  // hiddenToast: function () {
+  //   var that = this;
+  //   that.setData({
+  //     hiddenToast: true
+  //   })
+  // },
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-   
+    // payStatus: (options.payStatus == "true" ? true : false)
   },
-  
+  pay: function () {
 
+    var that = this;
+    this.setData({
+      payStatus:!this.data.payStatus
+  })
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
 
   },
-
   /**
    * Lifecycle function--Called when page show
    */
@@ -77,9 +80,7 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-
   },
-
   /**
    * Called when user click on the top right corner to share
    */

@@ -25,8 +25,6 @@
 .top-info span{
 	text-align: center;
 }
-
-
 .ques-wrapper{
 	padding: 30rpx;
 	background-color: #fff;
@@ -136,18 +134,21 @@
   display: flex;
   align-items: center;
 	margin-top: 20rpx;
-
 }
 .question-images image{
 	max-width: 100px;
 	max-height: 100px;
 	border-radius: 5%;
 }
-
 .btn{
   font-size: 24rpx;
 	background-color: white;
 	border: 1px solid rgb(231, 230, 230);
 	word-spacing: 5rpx;
-
 }
+.hide{
+	display: none;
+ }
+ .show{ 
+	display: block;
+ }

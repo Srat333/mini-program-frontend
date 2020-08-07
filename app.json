@@ -1,15 +1,15 @@
 {
-  "pages":[    
+  "pages":[
+    "pages/questionDetail/questionDetail",  
+    "pages/answer/answer", 
     "pages/userAccount/useraccount",
+    "pages/questionList/questionList",
+    "pages/commentList/commentList", 
     "pages/question/question",
-    "pages/commentList/commentList",
     "pages/evaluation/evaluation",
-    "pages/questionDetail/questionDetail",
-    "pages/answer/answer",
     "pages/orderList/orderList",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/questionList/questionList"
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
