@@ -26,7 +26,7 @@
     </view>
   </view>
 
-    <view class="ans-Details" wx:if="{{paytatus}}">
+    <view class="ans-Details {{payStatus?'show':'hide'}}">
       <view class="ques-info" >
       
       <view class="ans-sec">
@@ -47,7 +47,7 @@
     </view>
       </view>
       </view>
-      <button class="btn" bindtap="pay"   style="width: 90%; height: 30px; border-radius: 40rpx;">¥ {{listenPrice}} 去旁听</button>
+      <button class="btn {{payStatus?'hide':'show'}}"  bindtap="pay" style="width: 90%; height: 30px; border-radius: 40rpx;">¥ {{listenPrice}} 去旁听</button>
     
   </view> 
 </view>

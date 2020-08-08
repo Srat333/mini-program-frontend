@@ -16,25 +16,25 @@ Page({
     questime: "2020.02.02 17.59.02", //提问时间
     quesimg:"../../images/testOrderPage.jpg",
     listenPrice:"1",
-    hiddenToast: false,
+    payStatus: false,
     price:"1",
     people:"1",
-  },
-    /**
-   * 点击相关按钮引发的吐司效果
-   */
-  hiddenToast: function () {
-    var that = this;
-    that.setData({
-      hiddenToast: true
-    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-   
+
+    // payStatus: (options.payStatus == "true" ? true : false)
+  },
+
+  pay: function () {
+
+    var that = this;
+    this.setData({
+      payStatus:!this.data.payStatus
+  })
   },
   
 

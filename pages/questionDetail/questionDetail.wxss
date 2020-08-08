@@ -151,3 +151,9 @@
 	word-spacing: 5rpx;
 
 }
+.hide{
+	display: none;
+ }
+ .show{ 
+	display: block;
+ }
