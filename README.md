@@ -31,9 +31,8 @@
 #ui展示
 
 ## 架构图
-图
- 
-![arch](https://github.com/yngyuan/YuanTube/blob/master/arch.png?raw=true)
+
+![](https://github.com/Srat333/qa-tars-client/blob/master/tarsproject.jpg)
 
 ## 代码目录说明
 放截图
@@ -44,3 +43,8 @@ tree -d
 # 项目地址
 ## 小程序前端
 https://github.com/Srat333/mini-program-frontend
+##Tars服务端
+https://github.com/Srat333/qa-tars-server.git
+##Tars客户端
+https://github.com/Srat333/qa-tars-client.git
+
