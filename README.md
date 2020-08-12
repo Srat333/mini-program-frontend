@@ -28,15 +28,96 @@
 - [ ] 接入微信支付API
 
 
-#ui展示
-
+## ui展示
+![ui](https://github.com/Srat333/mini-program-frontend/blob/master/ui.png)
 ## 架构图
 
-![](https://github.com/Srat333/qa-tars-client/blob/master/tarsproject.jpg)
+![architecture](https://github.com/Srat333/qa-tars-client/blob/master/tarsproject.jpg)
 
 ## 代码目录说明
-
-## Tars服务端
+### 小程序
+```
+├── README.md
+├── api
+│   └── request.js
+├── app.js
+├── app.json
+├── app.wxss
+├── images
+│   ├── .DS_Store
+│   ├── avatar1.png
+│   ├── avatar2.png
+│   ├── camera.png
+│   ├── delete.png
+│   ├── home.png
+│   ├── people1.jpeg
+│   ├── people2.jpeg
+│   ├── profile.png
+│   ├── star0.png
+│   ├── star1.png
+│   └── testOrderPage.jpg
+├── pages
+│   ├── .DS_Store
+│   ├── answer
+│   │   ├── answer.js
+│   │   ├── answer.json
+│   │   ├── answer.wxml
+│   │   └── answer.wxss
+│   ├── commentList
+│   │   ├── commentList.js
+│   │   ├── commentList.json
+│   │   ├── commentList.wxml
+│   │   └── commentList.wxss
+│   ├── evaluation
+│   │   ├── evaluation.js
+│   │   ├── evaluation.json
+│   │   ├── evaluation.wxml
+│   │   └── evaluation.wxss
+│   ├── index
+│   │   ├── index.js
+│   │   ├── index.json
+│   │   ├── index.wxml
+│   │   └── index.wxss
+│   ├── logs
+│   │   ├── logs.js
+│   │   ├── logs.json
+│   │   ├── logs.wxml
+│   │   └── logs.wxss
+│   ├── profile
+│   │   ├── profile.js
+│   │   ├── profile.json
+│   │   ├── profile.wxml
+│   │   └── profile.wxss
+│   ├── question
+│   │   ├── question.js
+│   │   ├── question.json
+│   │   ├── question.wxml
+│   │   └── question.wxss
+│   ├── questionDetail
+│   │   ├── questionDetail.js
+│   │   ├── questionDetail.json
+│   │   ├── questionDetail.wxml
+│   │   └── questionDetail.wxss
+│   ├── questionList
+│   │   ├── questionList.js
+│   │   ├── questionList.json
+│   │   ├── questionList.wxml
+│   │   └── questionList.wxss
+│   └── userAccount
+│       ├── userAccount.js
+│       ├── userAccount.json
+│       ├── userAccount.wxml
+│       └── userAccount.wxss
+├── project.config.json
+├── sitemap.json
+└── utils
+    ├── .DS_Store
+    ├── common.util.js
+    ├── object.util.js
+    ├── promise.util.js
+    └── util.js
+```
+### Tars服务端
 ```
 .
 ├── pom.xml
@@ -75,7 +156,7 @@
 │           └── hello.tars
 └── tree.text
 ```
-## Tars客户端
+### Tars客户端
 ```
 .
 ├── pom.xml
