@@ -4,6 +4,11 @@ page{
   flex-direction: column;
   height: 100%;
 }
+
+.button{
+  color: #1AAD19;
+}
+
 .navbar{
   flex: none;
   display: flex;

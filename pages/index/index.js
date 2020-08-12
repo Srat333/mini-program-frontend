@@ -28,47 +28,53 @@ Page({
     })
   },
 
-  onTapDetail(){
+  onTapDetail(nickname, url){
     wx.redirectTo({
-      url: '../questionDetail/questionDetail',
+      url: '../questionDetail/questionDetail/username?Lisa&img?https://i.ibb.co/t3BWd6f/image.jpg',
     })
   },
 
   onTapAsk(){
-    var skey = wx.getStorageSync("skey")
-    console.log("here comes skey")
-    console.log(skey)
-    //TODO: add order
-    var that = this;
-    wx.request({
-      url: api.host+api.uri.addOrder,
-      method: 'POST',
-      data: {
-        qid: 12345678,
-      },
-      success: function(res){
-        console.log(res);
-        var ret = res.data;
-
-        if(ret==null){
-          var toastText = 'get failed';
-          wx.showToast({
-            title: toastText,
-            icon:'',
-            duration: 2000,
-          });
-        } else {
-          wx.showToast({
-            title: '成功，请付款',
-            duration: 3000,
-          })
-        }
-      }
+    wx.navigateTo({
+      url: '../question/question',
     })
+  //   var skey = wx.getStorageSync("skey")
+  //   wx.navigateTo({
+  //     url: '../question/question',
+  //   })
+  //   console.log("here comes skey")
+  //   console.log(skey)
+  //   //TODO: add order
+  //   var that = this;
+  //   wx.request({
+  //     url: api.host+api.uri.addOrder,
+  //     method: 'POST',
+  //     data: {
+  //       qid: 12345678,
+  //     },
+  //     success: function(res){
+  //       console.log(res);
+  //       var ret = res.data;
 
-    wx.switchTab({
-      url: '../profile/profile'
-  })
+  //       if(ret==null){
+  //         var toastText = 'get failed';
+  //         wx.showToast({
+  //           title: toastText,
+  //           icon:'',
+  //           duration: 2000,
+  //         });
+  //       } else {
+  //         wx.showToast({
+  //           title: '成功，请付款',
+  //           duration: 3000,
+  //         })
+  //       }
+  //     }
+  //   })
+
+  //   wx.switchTab({
+  //     url: '../profile/profile'
+  // })
   },
 
   onTapSteal(){
@@ -143,6 +149,7 @@ Page({
         that.setData({
           questionList: ret
         })
+        wx.setStorageSync('questionList', that.data.questionList);
         }
       }
     })

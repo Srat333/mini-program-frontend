@@ -11,7 +11,7 @@
 		<block wx:for='{{userList}}' wx:key='list' wx:for-item="item">
 			<view class="list_item">
 				<navigator url='details?id={{item.session_key}}'>
-					<view class='img' bindtap="onTapProfile">
+					<view class='img' bindtap="onTapProfile" >
 						<image src="{{item.avatarUrl}}" />
 					</view>
 					<view class='info'>

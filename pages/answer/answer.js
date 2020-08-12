@@ -13,7 +13,7 @@ Page({
     inputValue: '',
     titleCount: 0,
     contentCount: 0,
-    title: '2020选校选专业应该注意些什么',
+    title: 'how to be beautiful like you?',
     content: '',
     images: [],
   },

@@ -1,7 +1,7 @@
 import api from '../../api/request'
 //获取应用实例
 const app = getApp()
-
+// TODO: Currently Order backend service is not available.
 Page({
   data: {
     userInfo: {},
@@ -9,20 +9,68 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     hasUserInfo: false,
     currtab: 0,
-    swipertab: [{ name: '已完成', index: 0 }, { name: '待付款', index: 1 }, { name: '待回答', index: 2 }, { name: '待评价', index: 3 }],
+    swipertab: [{ name: '已完成', index: 0 }, { name: '待回答', index: 1 }, { name: '待评价', index: 2 }],
     alreadyOrder: [{  name: "关于选学校选专业.....", 
                       state: "交易成功", 
-                      time: "2020-09-30 14:00-16:00", 
-                      url: "../../images/testOrderPage.jpg", price: "10" }],
-    waitPayOrder: [],
-    waitAnsOrder: [],
+                      time: "2020-07-30 14:20:06", 
+                      url: "../../images/testOrderPage.jpg", price: "4.99" }],
+    waitAnsOrder: [{  name: "How to be beautiful like you?", 
+                      state: "待回答", 
+                      time: "2020-08-10 18:20:06", 
+                      url: "https://i.ibb.co/t3BWd6f/image.jpg", price: "1.99" }],
     waitComOrder: [],
-    
+    questionList:[],
+    orderList: [],
   },
 
   onLoad: function () {
     // 页面加载时使用用户授权逻辑，弹出确认的框
     this.userAuthorized()
+    this.data.questionList = wx.getStorageSync('questionList')
+    console.log(this.data.questionList)
+  },
+
+  onShow: function(){
+    this.getOrder()
+    this.orderShow()
+  },
+
+  getOrder(){
+    var that = this;
+    that.data.questionList.forEach(element => {
+      if(element.questionUid==wx.getStorageSync('skey')){
+        wx.request({
+          url: api.host+api.uri.getOrder,
+          method: 'GET',
+          data: {
+            qid: element.qid,
+          },
+          success: function(res){
+            var ret = res.data;        
+            if(ret==null){
+              var toastText = 'get question order failed';
+              wx.showToast({
+                title: toastText,
+                icon:'',
+                duration: 2000,
+              });
+            } else {
+                if(ret.data.is_commented==0){
+                  that.data.waitComOrder.push(ret.data)
+                }
+                else if(ret.data.is_answered==0){
+                  that.data.waitAnsOrder.push(ret.data)
+                }
+                else {
+                  that.data.alreadyOrder.push(res.data)
+                }
+              }
+            }
+          })
+      }
+    });
+    console.log("order List")
+    console.log(this.data.orderList)
   },
 
   userAuthorized() {
@@ -101,7 +149,6 @@ Page({
   onReady: function () {
     // 页面渲染完成
     this.getDeviceInfo()
-    this.orderShow()
   },
  
   getDeviceInfo: function () {
@@ -142,22 +189,20 @@ Page({
         that.alreadyShow()
         break
       case 1:
-        that.waitPayShow()
-        break
-      case 2:
         that.waitAnsShow()
         break
-      case 3:
+      case 2:
         that.waitComShow()
         break
     }
   },
   alreadyShow: function(){
+    // this.data.orderList.forEach(element => {
+    //   if(element.is_answered==1){
 
-  },
- 
-  waitPayShow:function(){
-
+    //     this.data.alreadyOrder.push()
+    //   }
+    // });
   },
  
   waitAnsShow: function () {
@@ -170,9 +215,8 @@ Page({
   
 //TODO
   onTapDetail(){
-    wx.showToast({
-      title: 'tapped detail',
-      duration: 1500,
+    wx.redirectTo({
+      url: '../questionDetail/questionDetail',
     })
   },
   

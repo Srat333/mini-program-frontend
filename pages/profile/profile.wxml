@@ -39,36 +39,11 @@
         </view>
         <view class="productCount">
           <view>
-            <text class="money">合计：￥{{item.money}}</text>
+            <text class="money">合计：￥{{item.price}}</text>
             <view >
             <button class="btn" bindtap="onTapDetail" style="width:30vw"  >详情</button>
            </view>
           </view>
-        </view>
-      </view>
-    </scroll-view>
-  </swiper-item>
-  <!-- 待付款 -->
-  <swiper-item>
-    <scroll-view class="hot-box" scroll-y="true">
-      <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key="waitPayOrder">
-         <view class="orderListTitle">
-           <text class="productTitle">{{item.time}}</text>
-          <text class="orderStatus">{{item.state}}</text>
-        </view>
-        <view class="orderListDetails">
-          <view class="productImg">
-            <image src="{{item.url}}" background-size="cover"></image>
-          </view>
-          <view class="productInfo">
-            <text class="userName">{{item.name}}</text>
-          </view>
-        </view>
-        <view class="productCount">
-          <view >
-            <text class="money" >合计：￥{{item.money}}</text>
-            <button class="btn" bindtap="onTapPay" style="width:30vw"  >去付款</button>
-           </view>
         </view>
       </view>
     </scroll-view>
@@ -91,10 +66,10 @@
         </view>
         <view class="productCount">
           <view >
-            <text class="money" >合计：￥{{item.money}}</text>
+            <text class="money" >合计：￥{{item.price}}</text>
             </view>
            <view >
-            <button class="btn" bindtap="onTapAnswer" style="width:30vw"  >去回答</button>
+            <button class="btn" bindtap="onTapAnswer" style="width:30vw"  >详情</button>
            </view>
         </view>
       </view>

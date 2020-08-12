@@ -9,7 +9,7 @@
   <view class="ques-info">
       <image src="{{quesuserimg}}"></image>
       <view class="ques-sec">
-        <view class="ques-user" >{{quesname}}<view class="ques-user" > 提问</view></view>
+        <view class="ques-user" >{{quesname}}<view class="ques-user" > 请教</view></view>
       </view>
       <view class="line"></view>
     </view>
@@ -47,7 +47,7 @@
     </view>
       </view>
       </view>
-      <button class="btn {{payStatus?'hide':'show'}}"  bindtap="pay" style="width: 90%; height: 30px; border-radius: 40rpx;">¥ {{listenPrice}} 去旁听</button>
+      <button class="btn {{payStatus?'hide':'show'}}"  bindtap="pay" style="width: 90%; height: 30px; border-radius: 40rpx;">查看回答</button>
     
   </view> 
 </view>

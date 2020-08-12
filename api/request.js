@@ -11,7 +11,11 @@ const uri = {
   // 提问
   addQ: 'qa/add',
   upload: 'qa/upload',
+  getUserQ: 'qa/user_q',
+  // 订单
   addOrder: 'order/add',
+  payOrder: 'order/pay',
+  getOrder: 'order/usr',
   // 回答
   addA: 'qa/reply'
 
