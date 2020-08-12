@@ -35,11 +35,78 @@
 ![](https://github.com/Srat333/qa-tars-client/blob/master/tarsproject.jpg)
 
 ## 代码目录说明
-放截图
-brew install tree
-cd 。》》
-tree -d
 
+## Tars服务端
+```
+.
+├── pom.xml
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── tencent
+│       │           └── tars
+│       │               └── server
+│       │                   ├── Application.java
+│       │                   ├── dao
+│       │                   │   ├── AnswerDao.java
+│       │                   │   ├── OrderDao.java
+│       │                   │   └── QuestionDao.java
+│       │                   ├── entity
+│       │                   │   ├── Answer.java
+│       │                   │   ├── Order.java
+│       │                   │   └── Question.java
+│       │                   ├── exception
+│       │                   │   ├── DefinitionException.java
+│       │                   │   ├── ErrorEnum.java
+│       │                   │   ├── GlobalExceptionHandler.java
+│       │                   │   ├── Result.java
+│       │                   │   └── ResultUtil.java
+│       │                   └── servant
+│       │                       ├── AnswerServant.java
+│       │                       ├── Impl
+│       │                       │   ├── AnswerServantImpl.java
+│       │                       │   ├── OrderServantImpl.java
+│       │                       │   └── QuestionServantImpl.java
+│       │                       ├── OrderServant.java
+│       │                       └── QuestionServant.java
+│       └── resources
+│           ├── application.properties
+│           └── hello.tars
+└── tree.text
+```
+## Tars客户端
+```
+.
+├── pom.xml
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── tencent
+│       │           └── tars
+│       │               └── client
+│       │                   ├── Application.java
+│       │                   ├── exception
+│       │                   │   └── Result.java
+│       │                   ├── testclient
+│       │                   │   ├── AnswerServant.java
+│       │                   │   ├── Impl
+│       │                   │   │   ├── AnswerServantImpl.java
+│       │                   │   │   ├── OrderServantImpl.java
+│       │                   │   │   └── QuestionServantImpl.java
+│       │                   │   ├── OrderServant.java
+│       │                   │   └── QuestionServant.java
+│       │                   └── testserver
+│       │                       ├── AnswerPrx.java
+│       │                       ├── OrderPrx.java
+│       │                       └── QuestionPrx.java
+│       └── resources
+│           ├── application.properties
+│           ├── client.tars
+│           └── hello.tars
+└── tree.text
+```
 # 项目地址
 ## 小程序前端
 https://github.com/Srat333/mini-program-frontend
